@@ -1,0 +1,26 @@
+.container {
+    width: 50%;
+    height: 100%;
+}
+
+.card-title {
+    font-family: 'Gamja Flower', cursive;
+    font-size: 20px;
+    color: blue;
+}
+
+.text-muted {
+    font-family: 'Gamja Flower', cursive;
+    font-size: 15px;
+    color: gray;
+}
+
+#memo-create-form {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: 3px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
