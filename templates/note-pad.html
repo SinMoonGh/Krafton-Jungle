@@ -44,39 +44,10 @@
                 <label for="comment">간단 코멘트</label>
                 <textarea class="form-control" id="comment" placeholder="코멘트를 입력하세요."></textarea>
             </div>
-            <button id="memo-save-button" type="submit" class="btn btn-primary" onclick="memoCreate()">메모 저장</button>
+            <button id="memo-save-button" type="submit" class="btn btn-primary" onclick="memoSave()">메모 저장</button>
         </div>
 
-        <div class="card-deck mb-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                        content.
-                    </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">제목 입력</h5>
-                    <p class="card-text">내용 입력</p>
-                    <p class="card-text"><small class="text-muted">코멘트 기입</small></p>
-                </div>
-            </div>
-        </div>
+        <div id="cards-box" class="card-columns"></div>
     </div>
 
     <!-- 이 부분은 절대 지우지 마세요. -->
