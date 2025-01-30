@@ -3,6 +3,7 @@ from flask import render_template
 from flask import request
 from flask import jsonify
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 from scrap import Scrap
 
 app = Flask(__name__)
@@ -33,8 +34,18 @@ def save():
 
 @app.route('/api/memo', methods=['GET'])
 def memo():
-    memo_list = list(db.memo.find({}, {'_id': False}))
+    memo_list = list(db.memo.find({}))
+    
+    for memo in memo_list:
+        memo['_id'] = str(memo['_id'])  # ObjectId를 문자열로 변환
+        
     return jsonify({'result': 'success', 'memo_list': memo_list})
+
+@app.route('/api/delete', methods=['POST'])
+def delete():
+    id_receive = request.form['id_give']
+    db.memo.delete_one({'_id': ObjectId(id_receive)})
+    return jsonify({'result': 'success', 'msg': '삭제 완료!'})
 
 if __name__ == '__main__':  
    app.run('0.0.0.0', port=5000, debug=True)

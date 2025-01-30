@@ -55,6 +55,20 @@ function showArticles() {
     })
 }
 
+function deleteMemo(id) {
+    if (confirm('정말 삭제하시겠습니까?')) {
+        $.ajax({
+            type: "POST",
+            url: "/api/delete",
+            data: { id_give: id },
+            success: function (response) {
+                alert(response['msg']);
+                location.reload();
+            }
+        });
+    }
+}
+
 function createCard(memo) {
     let card = `<div class="card">
                     <img src="${memo.url_image}" class="card-img-top" alt="...">
@@ -63,6 +77,7 @@ function createCard(memo) {
                         <p class="card-text">${memo.url_description}</p>
                         <p class="card-text"><small class="text-muted">${memo.comment}</small></p>
                     </div>
+                    <button id="delete-button" type="submit" class="btn btn-primary" onclick="deleteMemo('${memo._id}')">삭제</button>
                 </div>`;
 
     $("#cards-box").append(card);
